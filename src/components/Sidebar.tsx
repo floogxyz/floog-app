@@ -5,7 +5,7 @@ function Sidebar() {
   return (
     <div className="sidebar-container">
       <div className="inbox">
-        <img height={40} src={Logo} />
+        <img alt="logo" height={40} src={Logo} />
       </div>
     </div>
   );

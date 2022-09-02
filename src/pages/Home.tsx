@@ -1,7 +1,6 @@
 import React, { useState, useRef, useEffect } from "react";
 import WalletNav from "../components/WalletNav";
 import Sidebar from "../components/Sidebar";
-import Logo from "../assets/img/logo.svg";
 import "../styles/Home.css";
 import Webcam from "react-webcam";
 
@@ -32,29 +31,35 @@ function Home() {
         <>
           {screenshot ? (
             <div className="screenshot-container">
-              <img alt="screenshot" src={screenshot} />
+              <img
+                className="screenshot-image"
+                alt="screenshot"
+                src={screenshot}
+              />
               <div className="screenshot-buttons">
                 <button
+                  className="redo-btn"
                   onClick={() => {
-                    setShowCamera(false);
                     setScreenshot(null);
                   }}
                 >
                   take another
                 </button>
-                <button>send</button>
+                <button className="send-btn">send</button>
               </div>
             </div>
           ) : (
             <div className="webcam-container">
               <Webcam ref={webcamRef} className="webcam" />
-              <button onClick={screenshotHandler}>hey</button>
+              <button className="capture-btn" onClick={screenshotHandler}>
+                capture
+              </button>
             </div>
           )}
         </>
       ) : (
         <div className="content-container">
-          <h4 className="desc">Start by sending a photo</h4>
+          <h4 className="desc">Send a photo</h4>
           <button onClick={cameraHandler} className="cheese-btn">
             say cheese 🧀
           </button>
