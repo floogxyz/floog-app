@@ -1,0 +1,36 @@
+@font-face {
+  font-family: "Comic-Sans-MS";
+  src: url("../assets/fonts/Comic\ Sans\ MS.ttf") format("TrueType");
+  font-weight: normal;
+}
+
+.content-container {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  left: 40%;
+  top: 25%;
+}
+
+.desc {
+  font-size: 20px;
+  color: white;
+  font-family: "Comic-Sans-MS";
+}
+
+.cheese-btn {
+  margin-top: 4vh;
+  align-self: center;
+  outline: none;
+  background: transparent;
+  border: 1px solid transparent;
+  font-size: 25px;
+  background: rgba(255, 255, 255, 0.06);
+  padding: 10px 50px;
+  border-radius: 15px;
+  color: #f2fff2;
+  font-family: "Comic-Sans-MS";
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
