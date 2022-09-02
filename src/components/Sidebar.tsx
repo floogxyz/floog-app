@@ -1,12 +1,11 @@
 import React from "react";
 import "../styles/Sidebar.css";
-
+import Logo from "../assets/img/logo.svg";
 function Sidebar() {
   return (
     <div className="sidebar-container">
       <div className="inbox">
-        <span>📬</span>
-        <p className="inbox-text">Inbox</p>
+        <img height={40} src={Logo} />
       </div>
     </div>
   );

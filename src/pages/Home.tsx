@@ -1,21 +1,65 @@
-import React from "react";
+import React, { useState, useRef, useEffect } from "react";
 import WalletNav from "../components/WalletNav";
 import Sidebar from "../components/Sidebar";
 import Logo from "../assets/img/logo.svg";
 import "../styles/Home.css";
-// import { useAccount } from "wagmi";
+import Webcam from "react-webcam";
+
 function Home() {
-  //   const { address, isConnected } = useAccount();
-  //   console.log(address);
+  const [showCamera, setShowCamera] = useState<boolean>(false);
+  const webcamRef = useRef<any>(null);
+  const [screenshot, setScreenshot] = useState<string | null>();
+
+  const cameraHandler = () => {
+    setShowCamera(true);
+  };
+
+  const screenshotHandler = () => {
+    setScreenshot(webcamRef?.current?.getScreenshot());
+  };
+
+  useEffect(() => {
+    if (screenshot) {
+      console.log(screenshot);
+    }
+  }, [screenshot]);
+
   return (
     <div className="main-container">
       <WalletNav />
       <Sidebar />
-      <div className="content-container">
-        <img alt="logo" src={Logo} />
-        <h4 className="desc">Start by sending a photo to a wallet address</h4>
-        <button className="cheese-btn">say cheese 🧀</button>
-      </div>
+      {showCamera ? (
+        <>
+          {screenshot ? (
+            <div className="screenshot-container">
+              <img alt="screenshot" src={screenshot} />
+              <div className="screenshot-buttons">
+                <button
+                  onClick={() => {
+                    setShowCamera(false);
+                    setScreenshot(null);
+                  }}
+                >
+                  take another
+                </button>
+                <button>send</button>
+              </div>
+            </div>
+          ) : (
+            <div className="webcam-container">
+              <Webcam ref={webcamRef} className="webcam" />
+              <button onClick={screenshotHandler}>hey</button>
+            </div>
+          )}
+        </>
+      ) : (
+        <div className="content-container">
+          <h4 className="desc">Start by sending a photo</h4>
+          <button onClick={cameraHandler} className="cheese-btn">
+            say cheese 🧀
+          </button>
+        </div>
+      )}
     </div>
   );
 }
