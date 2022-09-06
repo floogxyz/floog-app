@@ -1,0 +1,46 @@
+.modal-container {
+  text-align: center;
+
+  background: rgba(255, 255, 255, 0.06);
+  position: absolute;
+  left: 20%;
+  right: 0;
+  top: 20%;
+  height: 65%;
+  margin-left: auto;
+  margin-right: auto;
+  width: 100vh;
+  border-radius: 20px;
+}
+
+.select-address {
+  color: white;
+  font-family: "Comic-Sans-MS";
+  font-size: 40px;
+}
+
+.input-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.input-addr {
+  width: 30%;
+  height: 20px;
+  -webkit-appearance: none;
+  outline: none;
+  background: #d9d9d9;
+  border: none;
+  border-radius: 9px;
+}
+
+.send-btn {
+  background: rgba(255, 255, 255, 0.06);
+  padding: 0;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 5px 30px;
+  margin: 0px;
+}
